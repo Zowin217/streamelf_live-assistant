@@ -16,6 +16,25 @@ A powerful live streaming assistant powered by DeepSeek AI. Create product scrip
 - ✅ WebRTC 实时视频流
 - ✅ 与现有互动模式无缝集成
 
+## Features
+
+✨ **AI-Powered Script Generation** - Generate engaging product scripts tailored to your chosen AI companion's personality  
+🎭 **Multiple AI Personalities** - Choose from 4 unique AI companions (Sparkle, Puff, Glitch, Ace)  
+📝 **Smart Teleprompter** - Voice-synced or timer-based auto-scrolling teleprompter  
+💬 **Live Comment Integration** - AI assistant responds to viewer comments in real-time  
+🎬 **LiveTalking Digital Human** - Real-time interactive digital human with lip-sync (NEW!)  
+💾 **Data Persistence** - All your products and settings are automatically saved  
+📤 **Export Scripts** - Download your generated scripts as text files  
+✏️ **Edit Products** - Easily edit product information and regenerate scripts  
+
+## Usage Guide
+
+1. **Select Your AI Companion** - Choose from 4 unique personalities on the home screen
+2. **Add Products** - Go to the Products tab and add products you want to sell
+3. **Generate Scripts** - Click "Generate Script" to create AI-powered sales scripts
+4. **Connect & Go Live** - Set up your stream connection and enter the live dashboard
+5. **Use the Teleprompter** - Start the teleprompter and let it guide you through your script
+
 ## 操作流程：
 
 ### 1、选择一个小精灵（每个小精灵的性格不同）
@@ -37,17 +56,6 @@ A powerful live streaming assistant powered by DeepSeek AI. Create product scrip
 
 ### 6、悬浮于桌面：逐字稿和小精灵模块可以悬浮在桌面上，随意改变位置
 <img width="2132" height="1484" alt="截图_20251201214838" src="https://github.com/user-attachments/assets/b968ac4b-a356-4e87-a1dd-f009e9e4011f" />
-
-## Features
-
-✨ **AI-Powered Script Generation** - Generate engaging product scripts tailored to your chosen AI companion's personality  
-🎭 **Multiple AI Personalities** - Choose from 4 unique AI companions (Sparkle, Puff, Glitch, Ace)  
-📝 **Smart Teleprompter** - Voice-synced or timer-based auto-scrolling teleprompter  
-💬 **Live Comment Integration** - AI assistant responds to viewer comments in real-time  
-🎬 **LiveTalking Digital Human** - Real-time interactive digital human with lip-sync (NEW!)  
-💾 **Data Persistence** - All your products and settings are automatically saved  
-📤 **Export Scripts** - Download your generated scripts as text files  
-✏️ **Edit Products** - Easily edit product information and regenerate scripts  
 
 ## Run Locally
 
@@ -74,13 +82,6 @@ A powerful live streaming assistant powered by DeepSeek AI. Create product scrip
 
 4. Open your browser and navigate to `http://localhost:3000`
 
-## Usage Guide
-
-1. **Select Your AI Companion** - Choose from 4 unique personalities on the home screen
-2. **Add Products** - Go to the Products tab and add products you want to sell
-3. **Generate Scripts** - Click "Generate Script" to create AI-powered sales scripts
-4. **Connect & Go Live** - Set up your stream connection and enter the live dashboard
-5. **Use the Teleprompter** - Start the teleprompter and let it guide you through your script
 
 ## Project Structure
 
