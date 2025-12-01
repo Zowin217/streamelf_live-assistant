@@ -1,0 +1,8 @@
+{
+  "name": "StreamElf - Live Assistant",
+  "description": "A smart AI companion for live streamers featuring teleprompter, auto-replies, and product scripts.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}

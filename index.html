@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>StreamElf - Live Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #0f172a; /* Slate 900 */
+        color: #e2e8f0; /* Slate 200 */
+      }
+      /* Custom scrollbar for teleprompter */
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      
+      /* --- AVATAR ANIMATIONS --- */
+      
+      /* Idle: Gentle breathing and floating */
+      @keyframes breathe {
+        0%, 100% { transform: scale(1) translateY(0); }
+        50% { transform: scale(1.03) translateY(-8px); }
+      }
+      
+      /* Talking: Energetic squash and stretch (Muppet/VTuber style) */
+      @keyframes talk {
+        0%, 100% { transform: scaleY(1) scaleX(1); }
+        25% { transform: scaleY(1.08) scaleX(0.95) translateY(-4px); }
+        50% { transform: scaleY(0.95) scaleX(1.02) translateY(2px); }
+        75% { transform: scaleY(1.04) scaleX(0.98) translateY(-2px); }
+      }
+
+      /* Thinking: Slight side-to-side sway */
+      @keyframes sway {
+        0%, 100% { transform: rotate(-2deg); }
+        50% { transform: rotate(2deg); }
+      }
+
+      .animate-breathe {
+        animation: breathe 4s ease-in-out infinite;
+      }
+      
+      .animate-talk {
+        animation: talk 0.3s ease-in-out infinite;
+        transform-origin: bottom center;
+      }
+
+      .animate-sway {
+        animation: sway 2s ease-in-out infinite;
+        transform-origin: bottom center;
+      }
+
+      /* Smooth transitions for better UX */
+      * {
+        transition-property: color, background-color, border-color, opacity, transform;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 150ms;
+      }
+
+      /* Custom scrollbar styling */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #1e293b;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #475569;
+        border-radius: 4px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: #64748b;
+      }
+
+      /* Focus visible for accessibility */
+      *:focus-visible {
+        outline: 2px solid #a855f7;
+        outline-offset: 2px;
+      }
+
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0"
+  }
+}
+</script>
+<!-- index.css is optional, styles are mostly in <style> tag above -->
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root">
+      <!-- Fallback message when opened directly -->
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; padding: 2rem; text-align: center; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);">
+        <div style="max-width: 600px; background: rgba(30, 41, 59, 0.8); padding: 3rem; border-radius: 1rem; border: 1px solid rgba(148, 163, 184, 0.2);">
+          <h1 style="font-size: 2rem; font-weight: bold; margin-bottom: 1rem; background: linear-gradient(135deg, #a855f7, #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+            ⚠️ 无法直接打开 HTML 文件
+          </h1>
+          <p style="color: #cbd5e1; margin-bottom: 1.5rem; line-height: 1.6;">
+            这是一个 <strong>Vite + React</strong> 项目，需要开发服务器才能运行。
+          </p>
+          <div style="background: rgba(59, 130, 246, 0.1); border-left: 4px solid #3b82f6; padding: 1rem; margin-bottom: 1.5rem; text-align: left; border-radius: 0.5rem;">
+            <h3 style="color: #60a5fa; margin-bottom: 0.5rem; font-size: 1.1rem;">📋 启动步骤：</h3>
+            <ol style="color: #cbd5e1; padding-left: 1.5rem; line-height: 2;">
+              <li>打开终端/命令提示符</li>
+              <li>进入项目目录</li>
+              <li>运行命令：<code style="background: rgba(0,0,0,0.3); padding: 0.25rem 0.5rem; border-radius: 0.25rem; color: #fbbf24;">npm run dev</code></li>
+              <li>在浏览器中打开显示的地址（通常是 http://localhost:3000）</li>
+            </ol>
+          </div>
+          <div style="background: rgba(34, 197, 94, 0.1); border-left: 4px solid #22c55e; padding: 1rem; margin-bottom: 1.5rem; text-align: left; border-radius: 0.5rem;">
+            <h3 style="color: #4ade80; margin-bottom: 0.5rem; font-size: 1.1rem;">🔑 重要提示：</h3>
+            <p style="color: #cbd5e1; margin: 0; line-height: 1.6;">
+              首次运行前，请确保已创建 <code style="background: rgba(0,0,0,0.3); padding: 0.25rem 0.5rem; border-radius: 0.25rem;">.env.local</code> 文件并配置了 <code style="background: rgba(0,0,0,0.3); padding: 0.25rem 0.5rem; border-radius: 0.25rem;">GEMINI_API_KEY</code>
+            </p>
+          </div>
+          <p style="color: #94a3b8; font-size: 0.9rem; margin-top: 1.5rem;">
+            详细说明请查看 <strong>QUICKSTART.md</strong> 文件
+          </p>
+        </div>
+      </div>
+    </div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
