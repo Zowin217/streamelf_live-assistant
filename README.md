@@ -1,6 +1,4 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+
 
 # StreamElf - AI Live Assistant
 
@@ -17,6 +15,28 @@ A powerful live streaming assistant powered by DeepSeek AI. Create product scrip
 - ✅ 支持多种数字人模型（wav2lip、musetalk 等）
 - ✅ WebRTC 实时视频流
 - ✅ 与现有互动模式无缝集成
+
+## 操作流程：
+
+### 1、选择一个小精灵（每个小精灵的性格不同）
+<img width="2542" height="1377" alt="截图_20251201213753" src="https://github.com/user-attachments/assets/b03daffb-8b81-45df-9f8f-24d8b2c7ab0b" />
+
+### 2、在产品tab，增加产品，并进一步生成逐字稿
+<img width="2414" height="1223" alt="截图_20251201214012" src="https://github.com/user-attachments/assets/cfddf10d-d221-4a3a-a64a-c3d0a58bbe6c" />
+可以修改或者重新生成逐字稿
+<img width="1545" height="798" alt="截图_20251201214055" src="https://github.com/user-attachments/assets/0a3016e1-1ead-4906-a43f-793cada5be20" />
+
+### 3、连接直播房间
+<img width="2323" height="1155" alt="截图_20251201214135" src="https://github.com/user-attachments/assets/03f314de-0267-4c52-90bb-a496d41b155a" />
+
+### 4、逐字稿模式：自动识别主播当前读稿内容，并驱动逐字稿自动滚动（也可以切换为匀速滚动）
+<img width="2524" height="1299" alt="截图_20251201214204" src="https://github.com/user-attachments/assets/09c00a97-aacd-4e8c-b960-66f9c918227f" />
+
+### 5、互动模式：与小精灵自然对话，页面中不断出现新话题，让主播一直有话聊
+<img width="2502" height="1114" alt="截图_20251201214305" src="https://github.com/user-attachments/assets/241a3007-293e-464f-a356-4856a7c337d5" />
+
+### 6、悬浮于桌面：逐字稿和小精灵模块可以悬浮在桌面上，随意改变位置
+<img width="2132" height="1484" alt="截图_20251201214838" src="https://github.com/user-attachments/assets/b968ac4b-a356-4e87-a1dd-f009e9e4011f" />
 
 ## Features
 
